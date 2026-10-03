@@ -24,19 +24,24 @@ jobs:
           node-version: '20.x'
           cache: pnpm
 
-      # 1. Clean install everything using our hoisted linker rules
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      # 2. Run the compiler script ("build": "tsc") to build your dist/ folder
       - name: Build application
         run: pnpm run build
+      
+      - name: Prod install
+        run: |
+          rm -rf node_modules
+          pnpm install --frozen_lockfile --prod
 
-      # 3. Prune development packages so you aren't deploying unnecessary tools
-      - name: Prune dev dependencies
-        run: pnpm prune --prod --no-optional
+      - name: Test modules
+        run: | 
+          test -d node_modules/body-parser
+          node -e "require('express')"
+          test -f dist/server.js
 
-      # 4. Zip your built dist/ files and production node_modules cleanly
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
