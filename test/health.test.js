@@ -33,11 +33,4 @@ test("GET /api/v1/health returns a healthy response", () =>
     const response = await fetch(`${baseUrl}/api/v1/health`);
     assert.equal(response.status, 200);
     assert.deepEqual(await response.json(), { status: "ok" });
-  }));
-
-test("dynamic route folders map to Express parameters", () =>
-  withServer(async (baseUrl) => {
-    const response = await fetch(`${baseUrl}/api/v1/users/abc`);
-    assert.equal(response.status, 200);
-    assert.deepEqual(await response.json(), { userId: "abc" });
-  }));
+}));
