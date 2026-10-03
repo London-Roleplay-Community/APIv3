@@ -33,7 +33,7 @@ jobs:
       - name: Prod install
         run: |
           rm -rf node_modules
-          pnpm install --frozen_lockfile --prod
+          pnpm install --frozen-lockfile --prod
 
       - name: Test modules
         run: | 
