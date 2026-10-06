@@ -2,8 +2,8 @@ import { NextRequest, NextResponse } from "next/server.js";
 
 export async function GET(request: NextRequest) {
   const server = {
-    region: request.headers.get('x-vercel-id') || "Unknown",
-    environment: process.env.VERCEL_ENV || "stable",
+    region: request.headers.get('x-vercel-id')?.split("::")[0] || "unknown",
+    environment: process.env.VERCEL_ENV || "dev",
   }
   return NextResponse.json({
     status: 200,
