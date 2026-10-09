@@ -22,7 +22,7 @@ export async function GET(req: NextRequest) {
   //     const state = crypto.randomUUID()
   //     await pending.insertOne({ state, roblox: { done: false }, discord: { done: false }, createdAt: new Date() })
 
-  //     const robloxUri = `https://apis.roblox.com/oauth/v1/authorize?client_id=${cid}&redirect_uri=${encodeURIComponent(callback)}&response_type=code&scope=openid%20profile+&state=${state}`
+  //     const robloxUri = `https://apis.roblox.com/oauth/v1/authorize?client_id=${cid}&redirect_uri=${encodeURIComponent(callback)}&response_type=code&scope=openid%20profile&state=${state}`
   //     return NextResponse.redirect(robloxUri)
   //   }
   //   if (!state) return NextResponse.json({ message: "Invalid state" }, { status: 400 })
