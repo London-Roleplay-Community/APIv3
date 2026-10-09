@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from "next/server.js";
-import clientPromise from "../../lib/mongodb.js";
+import { NextRequest, NextResponse } from "next/server";
+import clientPromise from "../../lib/mongodb";
 import axios from "axios";
 
 const cid = process.env.CLIENT_ID
