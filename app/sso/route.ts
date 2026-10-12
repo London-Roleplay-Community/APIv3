@@ -6,7 +6,7 @@ const cid = process.env.CLIENT_ID
 const secret = process.env.CLIENT_SECRET
 const discordSecret = process.env.DISCORD_TOKEN
 const discordClientId = process.env.DISCORD_CLIENTID
-const callback = "https://api.jxson.tech/api/sso"
+const callback = "https://api.jxson.tech/sso"
 
 export async function GET(req: NextRequest) {
   return NextResponse.json({
